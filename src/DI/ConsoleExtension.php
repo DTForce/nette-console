@@ -9,6 +9,7 @@
 
 namespace DTForce\NetteConsole\DI;
 
+use Doctrine\ORM\Tools\Console\Helper\EntityManagerHelper;
 use DTForce\NetteConsole\Exception\ServiceNotFoundException;
 use Nette\DI\CompilerExtension;
 use Nette\DI\ContainerBuilder;
@@ -37,6 +38,9 @@ class ConsoleExtension extends CompilerExtension
 
 		$builder->addDefinition(self::scrambledServiceName($builder, QuestionHelper::class))
 			->setClass(QuestionHelper::class);
+
+		$builder->addDefinition(self::scrambledServiceName($builder, QuestionHelper::class))
+			->setClass(EntityManagerHelper::class);
 	}
 
 
